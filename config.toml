@@ -1,0 +1,32 @@
+[basic]
+enable = true  # 启用插件
+debug = false   # 调试模式
+current_wxid = "wxid_uz9za1pqr3ea22"  # 当前微信机器人ID，留空将自动获取
+
+[pushplus]
+token = ""  # 您的PushPlus token
+channel = "wechat"  # 微信公众号渠道
+template = "html"   # html模板
+
+[notification]
+check_interval = 2  # 检查间隔，单位:秒
+retry_times = 3     # 通知发送失败重试次数
+retry_interval = 60 # 重试间隔，单位:秒
+heartbeat_threshold = 3  # 心跳检测失败阈值，连续失败此数后判定为离线
+
+[message]
+title_template = "警告：微信离线通知 - {time}"  # 通知标题模板
+test_title_template = "测试通知 - {time}"  # 测试通知标题模板
+
+# 离线通知文字内容
+[message.notification_text]
+title = "⚠️ 微信离线通知"  # 通知标题
+content = "您的微信账号 <b>{wxid}</b> 已于 <span style=\"color:#ff4757;font-weight:bold;\">{time}</span> 离线"  # 主要内容
+note = "请尽快检查您的设备连接状态或重新登录。"  # 提示信息
+
+# 测试通知文字内容
+[message.test_text]
+title = "📱 测试通知"  # 测试标题
+content = "这是一条测试消息，验证通知功能是否正常。"  # 测试说明
+account = "监控账号: <b>{wxid}</b>"  # 账号信息
+time = "发送时间: <span style=\"color:#2196f3;\">{time}</span>"  # 时间信息 
